@@ -1,0 +1,7 @@
+<%# $('#exampleModal').modal('hide'); %>
+debugger
+$('.post_title').var('');
+$('.post_content').var('');
+
+$('#container_posts').prepend('<%= j render @post %>');
+$('#post_<%= @post.id %>').hide().fadeIn(1000); 

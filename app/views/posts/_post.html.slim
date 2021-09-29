@@ -1,0 +1,36 @@
+.col-md-4.blog-main.box.center id='post_#{post.id}'
+  .card.card-info 
+    .card-header
+      .card-title 
+        = post.title
+      = post.content
+
+      .card-body 
+        div style='color: #3bb2d6;'
+          = time_ago_in_words(post.created_at)
+          br
+
+          .btn-group role='group' aria-label='...'
+            button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_#{post.id}" Edit
+            = link_to 'Destroy', post, method: :delete, class: 'btn btn-danger'
+
+      / = form_for(post, :method => :put, remote: true) do |f|
+      /   div class="modal fade" id="myupdatepost_#{post.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      /   div class="modal-dialog"
+      /     div class="modal-content"
+
+      /       div class="modal-header"
+      /         button type="button" class="close" data-dismiss="modal" aria-label="Close"
+      /         h5 class="modal-title" id="exampleModalLabel" Post
+
+      /       div class="modal-body"
+      /         .field 
+      /           = f.label :title
+      /           = f.text_area :title, class: 'form-control post_title'
+      /         .field 
+      /           = f.label :content
+      /           = f.text_area :content, class: 'form-control post_content'
+
+      /       div class="modal-footer"
+      /         button type="button" id='myupdatebutton_#{post.id}' class="btn btn-secondary" data-dismiss="modal" Close
+      /         = submit_tag 'Edit', class: 'btn btn-primary'
